@@ -1,0 +1,56 @@
+<h2>Booking</h2>
+
+
+<!-- <button mat-raised-button (click)="isEditable = !isEditable">
+  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button> -->
+
+<mat-stepper #stepper>
+
+  <mat-step [stepControl]="parentForm">
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Search Hotel</ng-template>
+      <app-searchhotel></app-searchhotel>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="parentForm">
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Choose Hotel</ng-template>
+      <app-choosehotel></app-choosehotel>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Personal information</ng-template>
+      <app-personalinfo></app-personalinfo>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Guest information</ng-template>
+    <app-guestinfo></app-guestinfo>
+   </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Payment Details</ng-template>
+      <app-paymentdetails></app-paymentdetails>
+
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="parentForm">
+      <ng-template matStepLabel>Finish Booking</ng-template>
+      <app-finishbooking></app-finishbooking>
+<<div>
+  <button mat-button matStepperPrevious>Back</button>
+  <button mat-button (click)="bookhotel()">Save</button>
+</div>
+    </form>
+  </mat-step>
+</mat-stepper>
